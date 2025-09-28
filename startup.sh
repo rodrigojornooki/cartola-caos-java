@@ -24,4 +24,4 @@ exec java \
     -XX:+UseG1GC \
     -XX:+UseStringDeduplication \
     -Djava.security.egd=file:/dev/./urandom \
-    -jar target/backend-0.0.1-SNAPSHOT.jar
+    -jar app.jar

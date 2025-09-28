@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=production
+      - DATABASE_URL=jdbc:postgresql://db:5432/cartola_db
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=password
+      - CARTOLA_TOKEN=eyJhbGciOiJSUzI1NiIsImtpZCI6Ijg5NWIwYmIwLTI4ODMtNDE3MC1hMDY2LTZkMDIwZjkzNGRlMyIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiY2FydG9sYS13ZWJAYXBwcy5nbG9ib2lkIl0sImF6cCI6ImNhcnRvbGEtd2ViQGFwcHMuZ2xvYm9pZCIsImVtYWlsIjoicm9kcmlnb2pvcm5vb2tpQGdtYWlsLmNvbSIsImV4cCI6MTc1ODM5NzM2NiwiZmVkZXJhdGVkX3NpZCI6IjFiOGQ0MTk2YzgwMTlhZDE4MzRkNzYwMmY4ZTA1ZjMyZjc0NmU2YTQ0NDQ3MzU2NDM0YjRlNzY1YTU5NTY0NjQyNjM1NDUyNGQ0NzM1NTA1NTQzMzc2MjMzNTY1NTYxNzY0ODc4NTQ2MzQ1MzY1NjU2NTk2NzcxNTU3MDU4NGI0OTQxMzM2NzUyNGQ2MTU0NGI2MzU4NGY1MjczMzE2OTZlNzkyZDQ2Njc2ZTM5NGMyZDc0NjQ0ODQ5Njc0OTRhNGU0YjM1NDM1ZjU5NzczZDNkM2EzMDNhNmE2ZjcyNmU2ZjZmNmI2OTVmNzI2ZjY0NzI2OTY3NmY
+      - SERVER_PORT=8080
+      - ALLOWED_ORIGINS=*
+    depends_on:
+      - db
+    networks:
+      - cartola-network
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_DB=cartola_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - cartola-network
+
+volumes:
+  postgres_data:
+
+networks:
+  cartola-network:
+    driver: bridge

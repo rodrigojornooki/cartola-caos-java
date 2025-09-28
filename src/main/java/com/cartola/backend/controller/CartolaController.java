@@ -3,7 +3,7 @@ package com.cartola.backend.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.cartola.backend.service.integration.CartolaApiService;
+import com.cartola.backend.service.integration.CartolaApiIntegrationService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import java.util.List;
@@ -15,7 +15,7 @@ import com.cartola.backend.model.ScoutNegativo;
 public class CartolaController {
 
     @Autowired
-    private CartolaApiService cartolaApiService;
+    private CartolaApiIntegrationService cartolaApiService;
 
     @GetMapping("/pontuacoes")
     @Operation(summary = "Buscar pontuações atuais", 

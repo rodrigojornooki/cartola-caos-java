@@ -24,7 +24,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class CartolaApiServiceTest {
 
     @Autowired
-    private CartolaApiService cartolaApiService;
+    private CartolaApiIntegrationService cartolaApiService;
 
     @MockBean
     private WebClient webClient;

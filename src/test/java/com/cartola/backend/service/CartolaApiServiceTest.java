@@ -2,7 +2,7 @@ package com.cartola.backend.service;
 
 import com.cartola.backend.dto.api.AtletaDTO;
 import com.cartola.backend.model.ScoutNegativo;
-import com.cartola.backend.service.integration.CartolaApiService;
+import com.cartola.backend.service.integration.CartolaApiIntegrationService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class CartolaApiServiceTest {
 
     @Autowired
-    private CartolaApiService cartolaApiService;
+    private CartolaApiIntegrationService cartolaApiService;
 
     @Test
     void testProcessarScouts() {

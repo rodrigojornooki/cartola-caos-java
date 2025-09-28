@@ -3,7 +3,7 @@ package com.cartola.backend.service;
 import com.cartola.backend.model.Jogador;
 import com.cartola.backend.model.ScoutNegativo;
 import com.cartola.backend.repository.JogadorRepository;
-import com.cartola.backend.service.integration.CartolaApiService;
+import com.cartola.backend.service.integration.CartolaApiIntegrationService;
 import com.cartola.backend.dto.PontuacaoJogadorDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +20,7 @@ public class JogadorService {
     private JogadorRepository jogadorRepository;
 
     @Autowired
-    private CartolaApiService cartolaApiService;
+    private CartolaApiIntegrationService cartolaApiService;
 
     public List<Jogador> listarTodos() {
         return jogadorRepository.findAll();

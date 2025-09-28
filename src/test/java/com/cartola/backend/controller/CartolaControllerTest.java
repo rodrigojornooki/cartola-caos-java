@@ -3,7 +3,7 @@ package com.cartola.backend.controller;
 import com.cartola.backend.dto.api.CartolaApiResponse;
 import com.cartola.backend.dto.api.StatusMercado;
 import com.cartola.backend.model.ScoutNegativo;
-import com.cartola.backend.service.integration.CartolaApiService;
+import com.cartola.backend.service.integration.CartolaApiIntegrationService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
@@ -25,7 +25,7 @@ public class CartolaControllerTest {
     private WebTestClient webTestClient;
 
     @MockBean
-    private CartolaApiService cartolaApiService;
+    private CartolaApiIntegrationService cartolaApiService;
 
     @Test
     void testGetPontuacoesAtuais() {

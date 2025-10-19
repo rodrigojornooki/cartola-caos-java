@@ -1,0 +1,6 @@
+version: 1
+build:
+  commands:
+    - cd backend && ./mvnw clean package -DskipTests
+run:
+  command: cd backend && java -Dserver.port=$PORT -jar target/backend-0.0.1-SNAPSHOT.jar
